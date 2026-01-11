@@ -8,7 +8,7 @@ var rotate = function (nums, k) {
 };
 
 function reverse(arr, left, right) {
-  // check left<right
+  // check left<right in
   while (left < right) {
     [arr[left], arr[right]] = [arr[right], arr[left]];
     left++;
