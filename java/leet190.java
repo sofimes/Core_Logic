@@ -11,7 +11,7 @@ public class leet190 {
         System.out.println("Reversed: " + reversed);
     }
 }
-
+// solution class
 class Solution {
     public int reverseBits(int n) {
         int result = 0;
