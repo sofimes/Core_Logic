@@ -1,0 +1,32 @@
+from typing import List
+
+class Solution:
+    def separateSquares(self, squares: List[List[int]]) -> float:
+        # Total area
+        total_area = sum(l * l for _, _, l in squares)
+        target = total_area / 2.0
+
+        def area_below(y: float) -> float:
+            area = 0.0
+            for _, yi, li in squares:
+                if y <= yi:
+                    continue
+                elif y >= yi + li:
+                    area += li * li
+                else:
+                    area += (y - yi) * li
+            return area
+
+        # Binary search bounds
+        low = min(yi for _, yi, _ in squares)
+        high = max(yi + li for _, yi, li in squares)
+
+        # Binary search
+        for _ in range(60):  # enough for 1e-6 precision
+            mid = (low + high) / 2
+            if area_below(mid) < target:
+                low = mid
+            else:
+                high = mid
+
+        return low
