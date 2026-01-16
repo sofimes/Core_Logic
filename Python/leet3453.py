@@ -17,11 +17,9 @@ class Solution:
                     area += (y - yi) * li
             return area
 
-        # Binary search bounds
         low = min(yi for _, yi, _ in squares)
         high = max(yi + li for _, yi, li in squares)
 
-        # Binary search
         for _ in range(60):  
             mid = (low + high) / 2
             if area_below(mid) < target:
