@@ -22,7 +22,7 @@ class Solution:
         high = max(yi + li for _, yi, li in squares)
 
         # Binary search
-        for _ in range(60):  # enough for 1e-6 precision
+        for _ in range(60):  
             mid = (low + high) / 2
             if area_below(mid) < target:
                 low = mid
